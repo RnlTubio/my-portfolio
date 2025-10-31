@@ -671,24 +671,23 @@ export default function Portfolio() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border dark:border-slate-800">
-                      <Mail
-                        className="h-5 w-5 text-blue-600 dark:text-blue-400"
-                        aria-hidden="true"
-                      />
+                    <a
+                      href="mailto:roneltubio781@gmail.com"
+                      className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border dark:border-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors cursor-pointer"
+                    >
                       <div>
                         <p className="text-sm text-slate-500 dark:text-slate-400">
                           Email
                         </p>
-                        <a
-                          href="mailto:roneltubio781@gmail.com"
-                          className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-                        >
+                        <p className="text-blue-600 dark:text-blue-400 font-medium">
                           roneltubio781@gmail.com
-                        </a>
+                        </p>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg border dark:border-slate-800">
+                    </a>
+                    <a
+                      href="tel:+639776787023"
+                      className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg border dark:border-slate-800 hover:bg-green-100 dark:hover:bg-green-900/50 transition-colors cursor-pointer"
+                    >
                       <Phone
                         className="h-5 w-5 text-green-600 dark:text-green-400"
                         aria-hidden="true"
@@ -697,15 +696,17 @@ export default function Portfolio() {
                         <p className="text-sm text-slate-500 dark:text-slate-400">
                           Phone
                         </p>
-                        <a
-                          href="tel:+639776787023"
-                          className="text-green-600 dark:text-green-400 hover:underline font-medium"
-                        >
+                        <p className="text-green-600 dark:text-green-400 font-medium">
                           0977 678 7023
-                        </a>
+                        </p>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-3 p-4 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg border dark:border-slate-800">
+                    </a>
+                    <a
+                      href="https://www.facebook.com/ronel.ftubio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-4 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg border dark:border-slate-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors cursor-pointer"
+                    >
                       <Facebook
                         className="h-5 w-5 text-indigo-600 dark:text-indigo-400"
                         aria-hidden="true"
@@ -714,16 +715,12 @@ export default function Portfolio() {
                         <p className="text-sm text-slate-500 dark:text-slate-400">
                           Facebook
                         </p>
-                        <a
-                          href="https://www.facebook.com/ronel.ftubio"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
-                        >
+                        <p className="text-indigo-600 dark:text-indigo-400 font-medium">
                           ronel.ftubio
-                        </a>
+                        </p>
                       </div>
-                    </div>
+                    </a>
+
                     <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-950/30 rounded-lg border dark:border-slate-800">
                       <MapPin
                         className="h-5 w-5 text-purple-600 dark:text-purple-400"
