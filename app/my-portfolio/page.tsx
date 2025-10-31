@@ -316,11 +316,36 @@ export default function Portfolio() {
               className="grid w-full grid-cols-5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
               aria-label="Portfolio sections"
             >
-              <TabsTrigger value="about">About</TabsTrigger>
-              <TabsTrigger value="experience">Experience</TabsTrigger>
-              <TabsTrigger value="skills">Skills</TabsTrigger>
-              <TabsTrigger value="awards">Awards</TabsTrigger>
-              <TabsTrigger value="contact">Contact</TabsTrigger>
+              <TabsTrigger
+                value="about"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                About
+              </TabsTrigger>
+              <TabsTrigger
+                value="experience"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Experience
+              </TabsTrigger>
+              <TabsTrigger
+                value="skills"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Skills
+              </TabsTrigger>
+              <TabsTrigger
+                value="awards"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Awards
+              </TabsTrigger>
+              <TabsTrigger
+                value="contact"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Contact
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="about" className="space-y-6">
