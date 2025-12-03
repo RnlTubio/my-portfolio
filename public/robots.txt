@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://ronel-tubio-portfolio.vercel.app/my-portfolio/sitemap.xml
+Sitemap: https://ronel-tubio-portfolio.vercel.app/sitemap.xml

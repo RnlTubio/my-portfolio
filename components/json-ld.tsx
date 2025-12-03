@@ -5,7 +5,7 @@ export default function JsonLd() {
         name: "Ronel Formarejo Tubio",
         alternateName: "Ronel Tubio",
         description: "Full Stack Developer passionate about building modern, efficient, and innovative web applications.",
-        url: "https://ronel-tubio-portfolio.vercel.app/my-portfolio",
+        url: "https://ronel-tubio-portfolio.vercel.app/",
         jobTitle: "Full Stack Developer",
         knowsAbout: [
             "Web Development",
@@ -19,10 +19,9 @@ export default function JsonLd() {
             "PHP Development"
         ],
         sameAs: [
-            // Add your social media profiles here
-            // "https://github.com/yourusername",
-            // "https://linkedin.com/in/yourusername",
-            // "https://twitter.com/yourusername",
+            "https://github.com/RnlTubio",
+            "https://www.facebook.com/ronel.ftubio",
+            "https://www.linkedin.com/in/ronel-tubio/"
         ],
         worksFor: {
             "@type": "Organization",

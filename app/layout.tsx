@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Ronel Tubio | Full Stack Developer Portfolio",
     description:
       "Discover the works and achievements of Ronel Tubio, a full stack developer creating innovative digital solutions.",
-    url: "https://ronel-tubio-portfolio.vercel.app/my-portfolio",
+    url: "https://ronel-tubio-portfolio.vercel.app/",
     siteName: "Ronel Tubio Portfolio",
     images: [
       {
@@ -83,10 +83,10 @@ export const metadata: Metadata = {
     creator: "@roneltubio", // Change to your actual Twitter handle if you have one
   },
   metadataBase: new URL(
-    "https://ronel-tubio-portfolio.vercel.app/my-portfolio"
+    "https://ronel-tubio-portfolio.vercel.app/"
   ),
   alternates: {
-    canonical: "https://ronel-tubio-portfolio.vercel.app/my-portfolio",
+    canonical: "https://ronel-tubio-portfolio.vercel.app/",
   },
 };
 

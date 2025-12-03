@@ -36,6 +36,7 @@ export default function Portfolio() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
@@ -199,11 +200,10 @@ export default function Portfolio() {
                     <button
                       key={item}
                       onClick={() => setActiveSection(item.toLowerCase())}
-                      className={`text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
-                        activeSection === item.toLowerCase()
-                          ? "text-blue-600 dark:text-blue-400"
-                          : "text-slate-600 dark:text-slate-300"
-                      }`}
+                      className={`text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === item.toLowerCase()
+                        ? "text-blue-600 dark:text-blue-400"
+                        : "text-slate-600 dark:text-slate-300"
+                        }`}
                       aria-current={
                         activeSection === item.toLowerCase()
                           ? "page"
@@ -367,8 +367,8 @@ export default function Portfolio() {
                     Philippine Startup Challenge 9 – Region 12 in 2024.
                   </p>
                   <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                    Currently, I'm learning AI automation and n8n to build
-                    smarter, more efficient systems. I'm passionate about
+                    Currently, I&apos;m learning AI automation and n8n to build
+                    smarter, more efficient systems. I&apos;m passionate about
                     content creation, technology, and continuous learning,
                     always seeking opportunities to enhance my skills and
                     contribute to innovation.
@@ -410,8 +410,8 @@ export default function Portfolio() {
                         Academic Research (IJSAR):
                         <span className="font-medium">
                           {" "}
-                          "Evaluating the Impact of User Interface Design on the
-                          Effectiveness of the Entrance Exam System"
+                          &quot;Evaluating the Impact of User Interface Design on the
+                          Effectiveness of the Entrance Exam System&quot;
                         </span>
                       </a>
                     </div>
