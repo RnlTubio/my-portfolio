@@ -6,6 +6,7 @@ export default function JsonLd() {
         alternateName: "Ronel Tubio",
         description: "Full Stack Developer passionate about building modern, efficient, and innovative web applications.",
         url: "https://ronel-tubio-portfolio.vercel.app/",
+        image: "https://ronel-tubio-portfolio.vercel.app/assets/profile.jpg", // Uses your profile picture as the logo/image
         jobTitle: "Full Stack Developer",
         knowsAbout: [
             "Web Development",
