@@ -1,0 +1,7 @@
+﻿
+> my-portfolio@0.1.0 build
+> next build
+
+   Γû▓ Next.js 16.0.1 (Turbopack)
+
+   Creating an optimized production build ...

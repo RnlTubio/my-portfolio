@@ -109,7 +109,7 @@ export default function Portfolio() {
       company: "Brigada Group of Companies",
       period: "2025 - Present",
       description:
-        "Develop and maintain full-stack web applications using ASP.NET Core and Angular. Collaborate on user-friendly, responsive, and scalable solutions.",
+        "Develop and maintain full-stack web applications. Collaborate on user-friendly, responsive, and scalable solutions. Part of the new advocacy of Brigada which is Delightful Philippines.",
     },
     {
       title: "Sales Consultant",
