@@ -29,6 +29,8 @@ import {
   Github,
   FolderGit2,
   ExternalLink,
+  Menu,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -36,6 +38,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -58,6 +61,18 @@ export default function Portfolio() {
       localStorage.setItem("theme", "light");
     }
   }, [isDark, mounted]);
+
+  useEffect(() => {
+    // Prevent body scroll when mobile menu is open
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   const skills = {
     frontend: [
@@ -219,7 +234,20 @@ export default function Portfolio() {
             <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
               Ronel F. Tubio
             </h1>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Menu className="h-5 w-5" aria-hidden="true" />
+                )}
+              </Button>
               <nav
                 className="hidden md:flex gap-6"
                 aria-label="Main navigation"
@@ -263,6 +291,45 @@ export default function Portfolio() {
           </div>
         </div>
       </header>
+
+      {/* Mobile Sidebar */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          {/* Sidebar */}
+          <div className="fixed left-0 top-0 bottom-0 w-64 bg-white dark:bg-slate-900 shadow-xl animate-in slide-in-from-left duration-300">
+            <div className="p-6 border-b dark:border-slate-800">
+              <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
+                Menu
+              </h2>
+            </div>
+            <nav className="p-4 space-y-2" aria-label="Mobile navigation">
+              {["About", "Experience", "Skills", "Projects", "Awards", "Contact"].map(
+                (item) => (
+                  <button
+                    key={item}
+                    onClick={() => {
+                      setActiveSection(item.toLowerCase());
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      activeSection === item.toLowerCase()
+                        ? "bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400"
+                        : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    }`}
+                  >
+                    {item}
+                  </button>
+                )
+              )}
+            </nav>
+          </div>
+        </div>
+      )}
 
       <main id="main-content">
         <section
@@ -342,7 +409,7 @@ export default function Portfolio() {
             className="space-y-8"
           >
             <TabsList
-              className="grid w-full grid-cols-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
+              className="hidden md:grid w-full grid-cols-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
               aria-label="Portfolio sections"
             >
               <TabsTrigger
