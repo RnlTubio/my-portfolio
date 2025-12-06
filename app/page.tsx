@@ -27,6 +27,8 @@ import {
   Moon,
   Sun,
   Github,
+  FolderGit2,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -165,6 +167,25 @@ export default function Portfolio() {
     },
   ];
 
+  const projects = [
+    {
+      title: "Weather Forecasting App",
+      description:
+        "A comprehensive weather forecasting application providing real-time weather updates, 5-day forecasts, hourly predictions, and air quality index monitoring. Features a beautiful and responsive UI with dark mode support.",
+      technologies: ["Next.js", "TypeScript", "Weather API", "Vercel"],
+      link: "https://weather-forecasting-rnel-tbio.vercel.app/",
+      github: "https://github.com/RnlTubio/weather-forecasting",
+    },
+    {
+      title: "QR Code Generator & Decoder",
+      description:
+        "A free online QR code generator and decoder tool that supports multiple data types including URLs, WiFi credentials, contact info, and more. Features instant downloads, no registration required, and works completely offline.",
+      technologies: ["Next.js", "TypeScript", "QR Code API", "Vercel"],
+      link: "https://qrcodedecoderfree.vercel.app/",
+      github: "https://github.com/RnlTubio/qr-code-decoder",
+    },
+  ];
+
   if (!mounted) {
     return null;
   }
@@ -195,7 +216,7 @@ export default function Portfolio() {
                 className="hidden md:flex gap-6"
                 aria-label="Main navigation"
               >
-                {["About", "Experience", "Skills", "Awards", "Contact"].map(
+                {["About", "Experience", "Skills", "Projects", "Awards", "Contact"].map(
                   (item) => (
                     <button
                       key={item}
@@ -313,7 +334,7 @@ export default function Portfolio() {
             className="space-y-8"
           >
             <TabsList
-              className="grid w-full grid-cols-5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
+              className="grid w-full grid-cols-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
               aria-label="Portfolio sections"
             >
               <TabsTrigger
@@ -333,6 +354,12 @@ export default function Portfolio() {
                 className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
               >
                 Skills
+              </TabsTrigger>
+              <TabsTrigger
+                value="projects"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Projects
               </TabsTrigger>
               <TabsTrigger
                 value="awards"
@@ -609,6 +636,91 @@ export default function Portfolio() {
                   </CardContent>
                 </Card>
               </div>
+            </TabsContent>
+
+            <TabsContent value="projects" className="space-y-4">
+              <Card className="shadow-lg border-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm dark:border-slate-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-2xl dark:text-slate-100">
+                    <FolderGit2
+                      className="h-6 w-6 text-blue-600 dark:text-blue-400"
+                      aria-hidden="true"
+                    />
+                    Projects
+                  </CardTitle>
+                  <CardDescription className="dark:text-slate-400">
+                    Showcase of my public projects made during my free time
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {projects.map((project, index) => (
+                    <article
+                      key={index}
+                      className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 p-6 rounded-lg border dark:border-slate-800"
+                    >
+                      <h3 className="font-bold text-xl text-slate-800 dark:text-slate-100 mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.map((tech, i) => (
+                          <Badge
+                            key={i}
+                            variant="secondary"
+                            className="bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex gap-3">
+                        {project.link && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                            asChild
+                          >
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink
+                                className="mr-2 h-4 w-4"
+                                aria-hidden="true"
+                              />
+                              View Live
+                            </a>
+                          </Button>
+                        )}
+                        {project.github && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                            asChild
+                          >
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github
+                                className="mr-2 h-4 w-4"
+                                aria-hidden="true"
+                              />
+                              GitHub
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </article>
+                  ))}
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="awards" className="space-y-4">
