@@ -169,6 +169,14 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "Portfolio Website with AI Assistant",
+      description:
+        "A modern, responsive portfolio website featuring an integrated AI assistant powered by Google Gemini. Built with Next.js, TypeScript, and Tailwind CSS. Includes dark mode, smooth animations, and optimized performance with real-time AI chat capabilities.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Google Gemini AI", "Vercel"],
+      link: "https://ronel-tubio-portfolio.vercel.app/",
+      github: "https://github.com/RnlTubio/my-portfolio",
+    },
+    {
       title: "Weather Forecasting App",
       description:
         "A comprehensive weather forecasting application providing real-time weather updates, 5-day forecasts, hourly predictions, and air quality index monitoring. Features a beautiful and responsive UI with dark mode support.",

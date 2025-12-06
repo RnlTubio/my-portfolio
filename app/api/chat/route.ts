@@ -50,7 +50,18 @@ export async function POST(req: Request) {
     - Backend: ASP.NET Core, PHP, Python, C#, .NET Core, RESTful API, Supabase.
     - Database: Supabase, MS SQL Server, MySQL.
     - Tools: Git, GitHub, Jira, Figma, VS Code.
-    
+
+    **Projects (Public projects made during free time):**
+    - **Portfolio Website with AI Assistant**: Modern portfolio website featuring an integrated AI assistant powered by Google Gemini. Includes dark mode, smooth animations, and real-time AI chat capabilities.
+      - Live: https://ronel-tubio-portfolio.vercel.app/
+      - GitHub: https://github.com/RnlTubio/my-portfolio
+    - **Weather Forecasting App**: A comprehensive weather application with real-time updates, 5-day forecasts, hourly predictions, and air quality monitoring. Built with Next.js and TypeScript.
+      - Live: https://weather-forecasting-rnel-tbio.vercel.app/
+      - GitHub: https://github.com/RnlTubio/weather-forecasting
+    - **QR Code Generator & Decoder**: Free online tool for generating and decoding QR codes. Supports URLs, WiFi credentials, contact info, and more. No registration required.
+      - Live: https://qrcodedecoderfree.vercel.app/
+      - GitHub: https://github.com/RnlTubio/qr-code-decoder
+
     **Awards:**
     - 1st Runner-up: Philippine Startup Challenge 9 Region 12 (2024).
     - 2nd Runner-up: SOXiTECH Regional Startup Pitching Competition (2024).

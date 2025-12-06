@@ -14,6 +14,8 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function ChatAssistant() {
     const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +70,7 @@ export default function ChatAssistant() {
                                         <Bot className="h-12 w-12 mx-auto opacity-20" />
                                         <p>Hi! I'm Ronel's AI assistant.</p>
                                         <p>
-                                            Ask me about his skills, experience, or how to contact
+                                            Ask me about his skills, experience, projects, or how to contact
                                             him.
                                         </p>
                                     </div>
@@ -97,7 +99,29 @@ export default function ChatAssistant() {
                                                 : "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
                                                 }`}
                                         >
-                                            {m.content}
+                                            {m.role === "user" ? (
+                                                m.content
+                                            ) : (
+                                                <div className="prose prose-sm dark:prose-invert max-w-none">
+                                                    <ReactMarkdown
+                                                        remarkPlugins={[remarkGfm]}
+                                                        components={{
+                                                            p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                                                            ul: ({ children }) => <ul className="list-disc pl-4 mb-2">{children}</ul>,
+                                                            ol: ({ children }) => <ol className="list-decimal pl-4 mb-2">{children}</ol>,
+                                                            li: ({ children }) => <li className="mb-1">{children}</li>,
+                                                            strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                                                            a: ({ children, href }) => (
+                                                                <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                                                                    {children}
+                                                                </a>
+                                                            ),
+                                                        }}
+                                                    >
+                                                        {m.content}
+                                                    </ReactMarkdown>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 ))}
