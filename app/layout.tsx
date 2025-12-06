@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Ronel Tubio Portfolio",
     images: [
       {
-        url: "/og-image.png", // You'll need to create this image (1200x630px recommended)
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ronel Tubio - Full Stack Developer Portfolio",
@@ -76,21 +76,11 @@ export const metadata: Metadata = {
     locale: "en_PH",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ronel Tubio | Full Stack Developer Portfolio",
-    description:
-      "Discover the works and achievements of Ronel Tubio, a full stack developer creating innovative digital solutions.",
-    images: ["/og-image.png"], // Same image as OpenGraph
-    creator: "@roneltubio", // Change to your actual Twitter handle if you have one
-  },
-  metadataBase: new URL(
-    "https://ronel-tubio-portfolio.vercel.app/"
-  ),
+
+  metadataBase: new URL("https://ronel-tubio-portfolio.vercel.app/"),
   alternates: {
     canonical: "https://ronel-tubio-portfolio.vercel.app/",
   },
-
 };
 
 export default function RootLayout({

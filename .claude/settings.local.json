@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node resize-icon.js:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
