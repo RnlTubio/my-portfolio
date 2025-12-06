@@ -17,11 +17,35 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+const mobileMessages = [
+    "Hi there! 👋",
+    "I'm Ronel's AI 🤖",
+    "Curious about him? ✨",
+    "Let's chat! 💬",
+    "Ask me about Ronel ✨",
+];
+
 export default function ChatAssistant() {
     const [isOpen, setIsOpen] = useState(false);
     const { messages, input, handleInputChange, handleSubmit, isLoading } =
         useChat();
     const scrollRef = useRef<HTMLDivElement>(null);
+
+    // Mobile looping text state
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+    const [fade, setFade] = useState(true);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFade(false);
+            setTimeout(() => {
+                setCurrentMessageIndex((prev) => (prev + 1) % mobileMessages.length);
+                setFade(true);
+            }, 500); // Wait for fade out before changing text
+        }, 3000); // Change message every 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -32,7 +56,14 @@ export default function ChatAssistant() {
     return (
         <>
             {/* Floating Chat Button */}
-            <div className="fixed bottom-4 right-4 z-50">
+            <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">
+                {/* Mobile Looping Text - Only visible when closed and on mobile */}
+                {!isOpen && (
+                    <div className={`sm:hidden bg-white dark:bg-slate-900 shadow-lg border border-slate-200 dark:border-slate-700 rounded-full px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}>
+                        {mobileMessages[currentMessageIndex]}
+                    </div>
+                )}
+
                 {!isOpen ? (
                     <div className="relative group">
                         {/* Subtle glow effect */}
@@ -67,8 +98,8 @@ export default function ChatAssistant() {
                             {/* Notification badge for mobile */}
                             <div className="absolute -top-1 -right-1 sm:hidden">
                                 <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                                 </span>
                             </div>
                         </button>
