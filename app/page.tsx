@@ -192,9 +192,9 @@ export default function Portfolio() {
       github: "https://github.com/RnlTubio/my-portfolio",
     },
     {
-      title: "Weather Forecasting App",
+      title: "Weather Forecasting Website",
       description:
-        "A comprehensive weather forecasting application providing real-time weather updates, 5-day forecasts, hourly predictions, and air quality index monitoring. Features a beautiful and responsive UI with dark mode support.",
+        "A comprehensive weather forecasting website providing real-time weather updates, 5-day forecasts, hourly predictions, and air quality index monitoring. Features a beautiful and responsive UI with dark mode support.",
       technologies: ["Next.js", "TypeScript", "Weather API", "Vercel"],
       link: "https://weather-forecasting-rnel-tbio.vercel.app/",
       github: "https://github.com/RnlTubio/weather-forecasting",

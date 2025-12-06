@@ -55,7 +55,7 @@ export async function POST(req: Request) {
     - **Portfolio Website with AI Assistant**: Modern portfolio website featuring an integrated AI assistant powered by Google Gemini. Includes dark mode, smooth animations, and real-time AI chat capabilities.
       - Live: https://ronel-tubio-portfolio.vercel.app/
       - GitHub: https://github.com/RnlTubio/my-portfolio
-    - **Weather Forecasting App**: A comprehensive weather application with real-time updates, 5-day forecasts, hourly predictions, and air quality monitoring. Built with Next.js and TypeScript.
+    - **Weather Forecasting Website**: A comprehensive weather website with real-time updates, 5-day forecasts, hourly predictions, and air quality monitoring. Built with Next.js and TypeScript.
       - Live: https://weather-forecasting-rnel-tbio.vercel.app/
       - GitHub: https://github.com/RnlTubio/weather-forecasting
     - **QR Code Generator & Decoder**: Free online tool for generating and decoding QR codes. Supports URLs, WiFi credentials, contact info, and more. No registration required.
