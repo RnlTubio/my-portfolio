@@ -31,19 +31,59 @@ export default function ChatAssistant() {
 
     return (
         <>
-            {/* Floating Action Button */}
-            <Button
-                onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-4 right-4 z-50 rounded-full h-14 w-14 shadow-lg bg-blue-600 hover:bg-blue-700 text-white"
-                size="icon"
-                aria-label={isOpen ? "Close chat" : "Open chat assistant"}
-            >
-                {isOpen ? (
-                    <X className="h-6 w-6" />
+            {/* Floating Chat Button */}
+            <div className="fixed bottom-4 right-4 z-50">
+                {!isOpen ? (
+                    <div className="relative group">
+                        {/* Subtle glow effect */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl sm:rounded-2xl rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 animate-pulse" />
+
+                        {/* Message bubble container - responsive design */}
+                        <button
+                            onClick={() => setIsOpen(true)}
+                            className="relative flex items-center gap-3 bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-200 dark:border-slate-700 hover:scale-105
+                                       sm:rounded-2xl sm:px-4 sm:py-3
+                                       rounded-full p-3"
+                            aria-label="Open chat assistant"
+                        >
+                            <Avatar className="h-10 w-10 sm:ring-2 sm:ring-blue-500 sm:ring-offset-2 ring-2 ring-blue-500">
+                                <AvatarImage src="/assets/profile.jpg" alt="Chat with Ronel" />
+                                <AvatarFallback className="bg-blue-600">RT</AvatarFallback>
+                            </Avatar>
+
+                            {/* Text - hidden on mobile, shown on sm+ screens */}
+                            <div className="hidden sm:flex flex-col items-start pr-1">
+                                <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                                    Chat with me!
+                                </span>
+                                <span className="text-xs text-slate-500 dark:text-slate-400">
+                                    Ask me about Ronel
+                                </span>
+                            </div>
+
+                            {/* Icon - hidden on mobile, shown on sm+ screens */}
+                            <MessageCircle className="hidden sm:block h-5 w-5 text-blue-600 dark:text-blue-400" />
+
+                            {/* Notification badge for mobile */}
+                            <div className="absolute -top-1 -right-1 sm:hidden">
+                                <span className="relative flex h-3 w-3">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                </span>
+                            </div>
+                        </button>
+                    </div>
                 ) : (
-                    <MessageCircle className="h-6 w-6" />
+                    <Button
+                        onClick={() => setIsOpen(false)}
+                        className="rounded-full h-14 w-14 shadow-lg bg-blue-600 hover:bg-blue-700 text-white"
+                        size="icon"
+                        aria-label="Close chat"
+                    >
+                        <X className="h-6 w-6" />
+                    </Button>
                 )}
-            </Button>
+            </div>
 
             {/* Chat Window */}
             {isOpen && (
