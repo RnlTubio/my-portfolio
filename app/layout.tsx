@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ronel Tubio | Full Stack Developer Portfolio",
+
   description:
     "Official portfolio of Ronel Tubio — a full stack developer passionate about building modern, efficient, and innovative web applications.",
   keywords: [
@@ -89,11 +90,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ronel-tubio-portfolio.vercel.app/",
   },
-  icons: {
-    icon: "/assets/profile.jpg",
-    shortcut: "/assets/profile.jpg",
-    apple: "/assets/profile.jpg",
-  },
+
 };
 
 export default function RootLayout({
