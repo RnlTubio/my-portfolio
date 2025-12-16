@@ -116,6 +116,7 @@ export default function Portfolio() {
       "VS Code",
       "Figma",
       "Canva",
+      "CapCut",
       "Sourcetree",
     ],
   };
@@ -316,11 +317,10 @@ export default function Portfolio() {
                       setActiveSection(item.toLowerCase());
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                      activeSection === item.toLowerCase()
-                        ? "bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400"
-                        : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                    }`}
+                    className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${activeSection === item.toLowerCase()
+                      ? "bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400"
+                      : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      }`}
                   >
                     {item}
                   </button>
@@ -918,7 +918,7 @@ export default function Portfolio() {
                           Location
                         </p>
                         <p className="text-purple-600 dark:text-purple-400 font-medium">
-                          Poblacion, Tupi, South Cotabato
+                          Poblacion, Tupi, South Cotabato, Philippines
                         </p>
                       </div>
                     </div>

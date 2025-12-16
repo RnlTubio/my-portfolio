@@ -41,6 +41,7 @@ export async function POST(req: Request) {
     - **Full Stack Junior Software Developer** at Brigada Group of Companies (2025 - Present): Develops full-stack web apps. Part of the new advocacy of Brigada which is Delightful Philippines.
     - **Sales Consultant** at Seth Digital Marketing Services (Jan 2023 - March 2025).
     - **Freelance Web Developer** (2023 - 2025): Built websites with HTML, CSS, JS, PHP, MySQL.
+    - **SPES Program** at Local Government Offices (2022 - 2024): Assisted with documentation and office tasks. Contributed to T'nalak Festival layout team that won championship.
     
     **Education:**
     - BS in Information Technology (Business Analytics) from South East Asian Institute of Technology (2021 - 2025).
@@ -49,7 +50,7 @@ export async function POST(req: Request) {
     - Frontend: React, Next.js, Angular, HTML5, CSS3, JavaScript, TypeScript, Tailwind CSS.
     - Backend: ASP.NET Core, PHP, Python, C#, .NET Core, RESTful API, Supabase.
     - Database: Supabase, MS SQL Server, MySQL.
-    - Tools: Git, GitHub, Jira, Figma, VS Code.
+    - Tools: Git, GitHub, Jira, Figma, VS Code, CapCut.
 
     **Projects (Public projects made during free time):**
     - **Portfolio Website with AI Assistant**: Modern portfolio website featuring an integrated AI assistant powered by Google Gemini. Includes dark mode, smooth animations, and real-time AI chat capabilities.
@@ -60,11 +61,17 @@ export async function POST(req: Request) {
       - GitHub: https://github.com/RnlTubio/weather-forecasting
     - **QR Code Generator & Decoder**: Free online tool for generating and decoding QR codes. Supports URLs, WiFi credentials, contact info, and more. No registration required.
       - Live: https://qrcodedecoderfree.vercel.app/
+
       - GitHub: https://github.com/RnlTubio/qr-code-decoder
+
+    **Research Publication:**
+    - **Evaluating the Impact of User Interface Design on the Effectiveness of the Entrance Exam System**: Published in the International Journal of Scientific and Academic Research (IJSAR).
+      - Link: https://ijsar.net/index.php/ijsar/article/view/145/86
 
     **Awards:**
     - 1st Runner-up: Philippine Startup Challenge 9 Region 12 (2024).
     - 2nd Runner-up: SOXiTECH Regional Startup Pitching Competition (2024).
+    - Best Innovation & 1st Runner-up: Provincial Startup Pitching Competition South Cotabato (2024).
     - Champion: Online Startup Pitching Competition - Provincial Level (2024).
     - Passed Civil Service Exam - Professional Level (2025).
     

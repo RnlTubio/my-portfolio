@@ -173,7 +173,7 @@ export default function ChatAssistant() {
                                             {m.role === "user" ? (
                                                 m.content
                                             ) : (
-                                                <div className="prose prose-sm dark:prose-invert max-w-none">
+                                                <div className="prose prose-sm dark:prose-invert max-w-none break-words">
                                                     <ReactMarkdown
                                                         remarkPlugins={[remarkGfm]}
                                                         components={{
