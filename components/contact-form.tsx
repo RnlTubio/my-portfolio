@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +14,8 @@ export default function ContactForm() {
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,6 +24,26 @@ export default function ContactForm() {
         setErrorMessage("");
 
         if (!formRef.current) return;
+
+        // Rate Limiting Check (30 minutes)
+        const lastSent = localStorage.getItem("lastContactSent");
+        if (lastSent) {
+            const timeDiff = Date.now() - parseInt(lastSent);
+            if (timeDiff < 30 * 60 * 1000) {
+                setStatus("error");
+                setErrorMessage("Please wait 30 minutes before sending another message.");
+                setLoading(false);
+                return;
+            }
+        }
+
+        // CAPTCHA Check
+        if (!captchaToken) {
+            setStatus("error");
+            setErrorMessage("Please complete the CAPTCHA verification.");
+            setLoading(false);
+            return;
+        }
 
         try {
             // Check if env vars are set
@@ -40,7 +63,10 @@ export default function ContactForm() {
             );
 
             setStatus("success");
+            localStorage.setItem("lastContactSent", Date.now().toString());
             formRef.current.reset();
+            recaptchaRef.current?.reset();
+            setCaptchaToken(null);
         } catch (error) {
             console.error("EmailJS Error:", error);
             setStatus("error");
@@ -134,6 +160,14 @@ export default function ContactForm() {
                                 className="min-h-[150px]"
                                 required
                                 disabled={loading}
+                            />
+                        </div>
+
+                        <div className="flex justify-center">
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+                                onChange={(token) => setCaptchaToken(token)}
                             />
                         </div>
 
