@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import JsonLd from "@/components/json-ld";
 import ChatAssistant from "@/components/chat-assistant";
 
@@ -99,6 +100,7 @@ export default function RootLayout({
         {children}
         <ChatAssistant />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
