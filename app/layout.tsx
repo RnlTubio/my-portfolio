@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import JsonLd from "@/components/json-ld";
 import ChatAssistant from "@/components/chat-assistant";
+import ScrollToTop from "@/components/scroll-to-top";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -99,6 +100,7 @@ export default function RootLayout({
       >
         {children}
         <ChatAssistant />
+        <ScrollToTop />
         <Analytics />
         <SpeedInsights />
       </body>

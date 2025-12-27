@@ -33,6 +33,7 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import ContactForm from "@/components/contact-form";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
@@ -925,6 +926,9 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
+              <div className="mt-8">
+                <ContactForm />
+              </div>
             </TabsContent>
           </Tabs>
         </section>
