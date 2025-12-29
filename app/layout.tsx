@@ -60,6 +60,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "KxYGgeNKjAvXWZk_8wGMkW6C8FUp5tdunskFEwEuPqI",
+    other: {
+      "msvalidate.01": "47525375F5DCC916D698EAAF2128125F", // Bing Webmaster Tools
+    },
   },
   openGraph: {
     title: "Ronel Tubio | Full Stack Developer Portfolio",
