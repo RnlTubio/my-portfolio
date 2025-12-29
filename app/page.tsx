@@ -31,6 +31,7 @@ import {
   ExternalLink,
   Menu,
   X,
+  Download,
 } from "lucide-react";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
@@ -380,6 +381,16 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 className="dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                asChild
+              >
+                <a href="/assets/resume.pdf" download="Ronel_Tubio_Resume.pdf">
+                  <Download className="mr-2 h-4 w-4" aria-hidden="true" />
+                  Download CV
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                className="dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
                 onClick={() => setActiveSection("experience")}
               >
                 <Briefcase className="mr-2 h-4 w-4" aria-hidden="true" />
@@ -535,32 +546,36 @@ export default function Portfolio() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {experience.map((job, index) => (
-                    <article
-                      key={index}
-                      className="border-l-4 border-blue-500 dark:border-blue-400 pl-4 py-2"
-                    >
-                      <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
-                        <div>
-                          <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">
-                            {job.title}
-                          </h3>
-                          <p className="text-blue-600 dark:text-blue-400 font-medium">
-                            {job.company}
+                  <div className="relative border-l border-slate-200 dark:border-slate-700 ml-3 my-4">
+                    {experience.map((job, index) => (
+                      <div key={index} className="mb-10 ml-6 last:mb-0">
+                        <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-slate-900 dark:bg-blue-900">
+                          <Briefcase className="w-3 h-3 text-blue-800 dark:text-blue-300" />
+                        </span>
+                        <div className="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
+                          <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
+                            <div>
+                              <h3 className="flex items-center mb-1 text-lg font-semibold text-slate-900 dark:text-white">
+                                {job.title}
+                              </h3>
+                              <p className="block mb-2 text-sm font-normal leading-none text-blue-600 dark:text-blue-400">
+                                {job.company}
+                              </p>
+                            </div>
+                            <Badge
+                              variant="secondary"
+                              className="bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 whitespace-nowrap"
+                            >
+                              <time dateTime={job.period}>{job.period}</time>
+                            </Badge>
+                          </div>
+                          <p className="text-base font-normal text-slate-500 dark:text-slate-400 leading-relaxed">
+                            {job.description}
                           </p>
                         </div>
-                        <Badge
-                          variant="secondary"
-                          className="bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 whitespace-nowrap"
-                        >
-                          <time dateTime={job.period}>{job.period}</time>
-                        </Badge>
                       </div>
-                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {job.description}
-                      </p>
-                    </article>
-                  ))}
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
