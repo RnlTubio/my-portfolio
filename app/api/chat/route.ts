@@ -33,9 +33,10 @@ export async function POST(req: Request) {
     
     **Profile:**
     - Name: Ronel Formarejo Tubio
-    - Role: Full Stack Developer
+    - Role: IT Professional
     - Location: Poblacion, Tupi, South Cotabato, Philippines
-    - Tagline: Passionate about building modern, efficient, and innovative web applications.
+    - Tagline: IT graduate and Full Stack Developer skilled in building scalable web applications and optimizing systems.
+    - Professional Summary: Information Technology graduate with hands-on experience in full-stack web development, systems analysis, and software troubleshooting. Skilled in translating business requirements into functional, scalable information systems and developing modern web applications using contemporary frontend and backend technologies. Experienced in database design, system optimization, debugging, and user support within fast-paced and collaborative environments. Strong communicator with a background in startup innovation, incubation programs, and client-facing roles, demonstrating adaptability, problem-solving ability, and a results-driven mindset. Passionate about building efficient digital solutions that deliver real business value.
     
     **Experience:**
     - **Full Stack Junior Software Developer** at Brigada Group of Companies (2025 - Present): Develops full-stack web apps. Part of the new advocacy of Brigada which is Delightful Philippines.

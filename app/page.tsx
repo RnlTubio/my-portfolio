@@ -360,15 +360,10 @@ export default function Portfolio() {
               >
                 Ronel F. Tubio
               </h2>
-              <p className="text-2xl text-blue-600 dark:text-blue-400 font-semibold mb-4">
-                Full Stack Web Developer
+              <p className="text-xl text-slate-900 dark:text-slate-100 font-semibold italic mb-3">
+                (IT PROFESSIONAL)
               </p>
-              <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Award-winning innovator recognized in multiple startup pitching
-                competitions. A Full Stack Developer specializing in web
-                development, passionate about building scalable solutions and
-                exploring AI automation.
-              </p>
+
             </div>
             <div className="flex flex-wrap justify-center gap-4 pt-4">
               <Button
@@ -474,18 +469,8 @@ export default function Portfolio() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                    I’m a Full Stack Developer specializing in web development.
-                    I have earned recognition in several startup pitching
-                    competitions, including achieving 1st Runner-up at the
-                    Philippine Startup Challenge 9 – Region 12 in 2024.
-                  </p>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                    Currently, I&apos;m learning AI automation and n8n to build
-                    smarter, more efficient systems. I&apos;m passionate about
-                    content creation, technology, and continuous learning,
-                    always seeking opportunities to enhance my skills and
-                    contribute to innovation.
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
+                    Information Technology graduate with hands-on experience in full-stack web development, systems analysis, and software troubleshooting. Skilled in translating business requirements into functional, scalable information systems and developing modern web applications using contemporary frontend and backend technologies. Experienced in database design, system optimization, debugging, and user support within fast-paced and collaborative environments. Strong communicator with a background in startup innovation, incubation programs, and client-facing roles, demonstrating adaptability, problem-solving ability, and a results-driven mindset. Passionate about building efficient digital solutions that deliver real business value.
                   </p>
                   <div className="pt-4 border-t dark:border-slate-700">
                     <h3 className="font-semibold text-lg mb-3 flex items-center gap-2 dark:text-slate-100">
