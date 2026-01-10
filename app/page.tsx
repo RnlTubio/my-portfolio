@@ -12,6 +12,13 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import {
   Mail,
   Phone,
   Facebook,
@@ -32,6 +39,8 @@ import {
   Menu,
   X,
   Download,
+  Image as ImageIcon,
+  FileBadge,
 } from "lucide-react";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
@@ -212,6 +221,95 @@ export default function Portfolio() {
     },
   ];
 
+  const certificates = [
+    {
+      title: "Certificate 1",
+      issuer: "Professional Certification",
+      date: "2024",
+      link: "/assets/Certficates/Cert 1.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Certificate 2",
+      issuer: "Professional Certification",
+      date: "2024",
+      link: "/assets/Certficates/Cert 2.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Certificate 3",
+      issuer: "Professional Certification",
+      date: "2023",
+      link: "/assets/Certficates/Cert 3.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Certificate 4",
+      issuer: "Professional Certification",
+      date: "2023",
+      link: "/assets/Certficates/Cert 4.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Certificate 5",
+      issuer: "Professional Certification",
+      date: "2023",
+      link: "/assets/Certficates/cert 5.pdf",
+      type: "pdf"
+    },
+  ];
+
+  const gallery = [
+    {
+      title: "Gallery Image 1",
+      image: "/assets/Gallery/picture 1.jpg",
+    },
+    {
+      title: "Gallery Image 2",
+      image: "/assets/Gallery/picture 2.jpg",
+    },
+    {
+      title: "Gallery Image 3",
+      image: "/assets/Gallery/picture 3.jpg",
+    },
+    {
+      title: "Gallery Image 4",
+      image: "/assets/Gallery/picture 4.jpg",
+    },
+    {
+      title: "Gallery Image 5",
+      image: "/assets/Gallery/picture 5.jpg",
+    },
+    {
+      title: "Gallery Image 6",
+      image: "/assets/Gallery/picture 6.jpg",
+    },
+    {
+      title: "Gallery Image 7",
+      image: "/assets/Gallery/picture 7.jpg",
+    },
+    {
+      title: "Gallery Image 8",
+      image: "/assets/Gallery/picture 8.jpg",
+    },
+    {
+      title: "Gallery Image 9",
+      image: "/assets/Gallery/picture 9.jpg",
+    },
+    {
+      title: "Gallery Image 10",
+      image: "/assets/Gallery/picture 10.jpg",
+    },
+    {
+      title: "Gallery Image 11",
+      image: "/assets/Gallery/picture 11.jpg",
+    },
+    {
+      title: "Gallery Image 12",
+      image: "/assets/Gallery/picture 12.jpg",
+    },
+  ];
+
   if (!mounted) {
     return null;
   }
@@ -252,10 +350,10 @@ export default function Portfolio() {
                 )}
               </Button>
               <nav
-                className="hidden md:flex gap-6"
+                className="hidden md:flex gap-4 lg:gap-6"
                 aria-label="Main navigation"
               >
-                {["About", "Experience", "Skills", "Projects", "Awards", "Contact"].map(
+                {["About", "Experience", "Skills", "Projects", "Awards", "Certificates", "Gallery", "Contact"].map(
                   (item) => (
                     <button
                       key={item}
@@ -311,7 +409,7 @@ export default function Portfolio() {
               </h2>
             </div>
             <nav className="p-4 space-y-2" aria-label="Mobile navigation">
-              {["About", "Experience", "Skills", "Projects", "Awards", "Contact"].map(
+              {["About", "Experience", "Skills", "Projects", "Awards", "Certificates", "Gallery", "Contact"].map(
                 (item) => (
                   <button
                     key={item}
@@ -416,7 +514,7 @@ export default function Portfolio() {
             className="space-y-8"
           >
             <TabsList
-              className="hidden md:grid w-full grid-cols-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
+              className="hidden md:grid w-full grid-cols-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
               aria-label="Portfolio sections"
             >
               <TabsTrigger
@@ -448,6 +546,18 @@ export default function Portfolio() {
                 className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
               >
                 Awards
+              </TabsTrigger>
+              <TabsTrigger
+                value="certificates"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Certificates
+              </TabsTrigger>
+              <TabsTrigger
+                value="gallery"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+              >
+                Gallery
               </TabsTrigger>
               <TabsTrigger
                 value="contact"
@@ -843,6 +953,230 @@ export default function Portfolio() {
               </Card>
             </TabsContent>
 
+            <TabsContent value="certificates" className="space-y-4">
+              <Card className="shadow-lg border-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm dark:border-slate-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-2xl dark:text-slate-100">
+                    <FileBadge
+                      className="h-6 w-6 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden="true"
+                    />
+                    Certificates
+                  </CardTitle>
+                  <CardDescription className="dark:text-slate-400">
+                    Professional certifications and achievements
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {/* Desktop Grid View */}
+                  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {certificates.map((cert, index) => (
+                      <div
+                        key={index}
+                        className="group relative bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border dark:border-slate-700 flex flex-col hover:shadow-md transition-shadow"
+                      >
+                        <div className="relative w-full h-64 bg-slate-200 dark:bg-slate-900">
+                          <iframe
+                            src={`${cert.link}#view=FitH`}
+                            className="w-full h-full border-0"
+                            title={`${cert.title} Preview`}
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="p-4 flex flex-col flex-grow">
+                          <h3 className="font-semibold text-slate-800 dark:text-slate-100 mb-1">
+                            {cert.title}
+                          </h3>
+                          <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+                            {cert.issuer}
+                          </p>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full mt-auto dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                            asChild
+                          >
+                            <a
+                              href={cert.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              View Full Screen
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Mobile Carousel View */}
+                  <div className="block md:hidden px-8">
+                    <Carousel
+                      className="w-full max-w-xs mx-auto"
+                      opts={{
+                        align: "start",
+                        loop: true,
+                      }}
+                      plugins={[
+                        {
+                          name: "autoplay",
+                          options: {
+                            delay: 1000,
+                          },
+                          init: (embla: any) => {
+                            let intervalId: NodeJS.Timeout;
+                            const autoplay = () => {
+                              intervalId = setInterval(() => {
+                                embla.scrollNext();
+                              }, 1000);
+                            };
+                            embla.on("init", autoplay);
+                            embla.on("pointerDown", () => clearInterval(intervalId));
+                            embla.on("pointerUp", autoplay);
+                          },
+                        } as any,
+                      ]}
+                    >
+                      <CarouselContent>
+                        {certificates.map((cert, index) => (
+                          <CarouselItem key={index}>
+                            <div className="group relative bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border dark:border-slate-700 flex flex-col hover:shadow-md transition-shadow h-full">
+                              <div className="relative w-full h-56 bg-slate-200 dark:bg-slate-900">
+                                <iframe
+                                  src={`${cert.link}#view=FitH`}
+                                  className="w-full h-full border-0"
+                                  title={`${cert.title} Preview`}
+                                  loading="lazy"
+                                />
+                              </div>
+                              <div className="p-4 flex flex-col flex-grow">
+                                <h3 className="font-semibold text-slate-800 dark:text-slate-100 mb-1">
+                                  {cert.title}
+                                </h3>
+                                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+                                  {cert.issuer}
+                                </p>
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  className="w-full mt-auto dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                                  asChild
+                                >
+                                  <a
+                                    href={cert.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <ExternalLink className="mr-2 h-4 w-4" />
+                                    View Full Screen
+                                  </a>
+                                </Button>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="hidden" />
+                      <CarouselNext className="hidden" />
+                    </Carousel>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="gallery" className="space-y-4">
+              <Card className="shadow-lg border-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm dark:border-slate-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-2xl dark:text-slate-100">
+                    <ImageIcon
+                      className="h-6 w-6 text-pink-600 dark:text-pink-400"
+                      aria-hidden="true"
+                    />
+                    Gallery
+                  </CardTitle>
+                  <CardDescription className="dark:text-slate-400">
+                    A glimpse into my professional journey and events
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {/* Desktop Grid View */}
+                  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {gallery.map((item, index) => (
+                      <div
+                        key={index}
+                        className="group relative aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border dark:border-slate-700"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <p className="text-white text-sm font-medium px-2 text-center">
+                            {item.title}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Mobile Carousel View */}
+                  <div className="block md:hidden px-8">
+                    <Carousel
+                      className="w-full max-w-xs mx-auto"
+                      opts={{
+                        align: "start",
+                        loop: true,
+                      }}
+                      plugins={[
+                        {
+                          name: "autoplay",
+                          options: {
+                            delay: 1000,
+                          },
+                          init: (embla: any) => {
+                            let intervalId: NodeJS.Timeout;
+                            const autoplay = () => {
+                              intervalId = setInterval(() => {
+                                embla.scrollNext();
+                              }, 1000);
+                            };
+                            embla.on("init", autoplay);
+                            embla.on("pointerDown", () => clearInterval(intervalId));
+                            embla.on("pointerUp", autoplay);
+                          },
+                        } as any,
+                      ]}
+                    >
+                      <CarouselContent>
+                        {gallery.map((item, index) => (
+                          <CarouselItem key={index}>
+                            <div className="group relative aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border dark:border-slate-700">
+                              <Image
+                                src={item.image}
+                                alt={item.title}
+                                fill
+                                className="object-cover"
+                              />
+                              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <p className="text-white text-sm font-medium px-2 text-center">
+                                  {item.title}
+                                </p>
+                              </div>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="hidden" />
+                      <CarouselNext className="hidden" />
+                    </Carousel>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
             <TabsContent value="contact" className="space-y-4">
               <Card className="shadow-lg border-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm dark:border-slate-800">
                 <CardHeader>
@@ -941,6 +1275,6 @@ export default function Portfolio() {
           </p>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
