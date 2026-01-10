@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Card,
   CardContent,
@@ -1019,23 +1020,10 @@ export default function Portfolio() {
                         loop: true,
                       }}
                       plugins={[
-                        {
-                          name: "autoplay",
-                          options: {
-                            delay: 1000,
-                          },
-                          init: (embla: any) => {
-                            let intervalId: NodeJS.Timeout;
-                            const autoplay = () => {
-                              intervalId = setInterval(() => {
-                                embla.scrollNext();
-                              }, 1000);
-                            };
-                            embla.on("init", autoplay);
-                            embla.on("pointerDown", () => clearInterval(intervalId));
-                            embla.on("pointerUp", autoplay);
-                          },
-                        } as any,
+                        Autoplay({
+                          delay: 3000,
+                          stopOnInteraction: true,
+                        }) as any,
                       ]}
                     >
                       <CarouselContent>
@@ -1131,23 +1119,10 @@ export default function Portfolio() {
                         loop: true,
                       }}
                       plugins={[
-                        {
-                          name: "autoplay",
-                          options: {
-                            delay: 1000,
-                          },
-                          init: (embla: any) => {
-                            let intervalId: NodeJS.Timeout;
-                            const autoplay = () => {
-                              intervalId = setInterval(() => {
-                                embla.scrollNext();
-                              }, 1000);
-                            };
-                            embla.on("init", autoplay);
-                            embla.on("pointerDown", () => clearInterval(intervalId));
-                            embla.on("pointerUp", autoplay);
-                          },
-                        } as any,
+                        Autoplay({
+                          delay: 3000,
+                          stopOnInteraction: true,
+                        }) as any,
                       ]}
                     >
                       <CarouselContent>

@@ -126,8 +126,43 @@ export async function POST(req: Request) {
             },
         });
 
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error in chat route:', error);
-        return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
+
+        let errorMessage = 'Internal Server Error';
+        let userFriendlyMessage = 'Sorry, something went wrong. Please try again.';
+        let statusCode = 500;
+
+        // Check for rate limit errors
+        if (error?.message?.includes('429') ||
+            error?.message?.includes('quota') ||
+            error?.message?.includes('rate limit') ||
+            error?.message?.includes('RESOURCE_EXHAUSTED') ||
+            error?.status === 429) {
+
+            errorMessage = 'Rate Limit Exceeded';
+            userFriendlyMessage = '⏰ The AI assistant is currently unavailable due to high usage. Please try again later or contact Ronel directly at roneltubio781@gmail.com.';
+            statusCode = 429;
+            console.error('Rate limit exceeded');
+        } else if (!process.env.GOOGLE_API_KEY) {
+            errorMessage = 'Configuration Error';
+            userFriendlyMessage = '⚙️ The AI assistant is temporarily unavailable. Please contact Ronel directly.';
+            console.error('Missing API key');
+        } else {
+            // Log detailed error for debugging
+            console.error('Error details:', {
+                message: error?.message,
+                status: error?.status,
+                stack: error?.stack
+            });
+        }
+
+        return new Response(JSON.stringify({
+            error: errorMessage,
+            message: userFriendlyMessage
+        }), {
+            status: statusCode,
+            headers: { 'Content-Type': 'application/json' }
+        });
     }
 }

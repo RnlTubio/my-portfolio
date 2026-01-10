@@ -27,13 +27,34 @@ const mobileMessages = [
 
 export default function ChatAssistant() {
     const [isOpen, setIsOpen] = useState(false);
-    const { messages, input, handleInputChange, handleSubmit, isLoading } =
-        useChat();
+    const { messages, input, handleInputChange, handleSubmit, isLoading, error } =
+        useChat({
+            id: 'ronel-portfolio-chat',
+            api: '/api/chat',
+            onError: (error) => {
+                console.error('Chat error:', error);
+            },
+            onFinish: (message) => {
+                console.log('Message finished:', message);
+            },
+        });
     const scrollRef = useRef<HTMLDivElement>(null);
 
     // Mobile looping text state
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [fade, setFade] = useState(true);
+
+    // Persist chat open state
+    useEffect(() => {
+        const savedState = localStorage.getItem('chatIsOpen');
+        if (savedState === 'true') {
+            setIsOpen(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('chatIsOpen', isOpen.toString());
+    }, [isOpen]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -212,6 +233,18 @@ export default function ChatAssistant() {
                                                 className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"
                                                 style={{ animationDelay: "0.4s" }}
                                             />
+                                        </div>
+                                    </div>
+                                )}
+                                {error && (
+                                    <div className="flex gap-3">
+                                        <Avatar className="h-8 w-8 mt-1">
+                                            <AvatarFallback className="bg-red-500">!</AvatarFallback>
+                                        </Avatar>
+                                        <div className="bg-red-100 dark:bg-red-900/20 border border-red-300 dark:border-red-800 rounded-lg p-3 text-sm text-red-800 dark:text-red-200">
+                                            {error.message.includes('429') || error.message.includes('Rate Limit')
+                                                ? "⏰ The AI assistant is currently unavailable due to high usage. Please try again later or contact Ronel directly."
+                                                : "Sorry, something went wrong. Please try again later."}
                                         </div>
                                     </div>
                                 )}
