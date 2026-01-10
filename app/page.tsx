@@ -383,7 +383,7 @@ export default function Portfolio() {
                 className="dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
                 asChild
               >
-                <a href="/assets/resume.pdf" download="Ronel_Tubio_Resume.pdf">
+                <a href="/assets/Ronel Tubio CV.pdf" download="Ronel_Tubio_CV.pdf">
                   <Download className="mr-2 h-4 w-4" aria-hidden="true" />
                   Download CV
                 </a>
