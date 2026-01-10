@@ -434,10 +434,10 @@ export default function Portfolio() {
 
       <main id="main-content">
         <section
-          className="max-w-6xl mx-auto px-6 py-16"
+          className="max-w-6xl mx-auto px-6 pt-12 pb-6"
           aria-labelledby="hero-heading"
         >
-          <div className="text-center space-y-6">
+          <div className="text-center space-y-4">
             <div className="inline-block">
               <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
                 <Image
@@ -464,7 +464,7 @@ export default function Portfolio() {
               </p>
 
             </div>
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
+            <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Button
                 className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
                 onClick={() => setActiveSection("contact")}

@@ -1,10 +1,40 @@
 import { GoogleGenAI } from "@google/genai";
+import { Ratelimit } from "@vercel/ratelimit";
+import { Redis } from "@upstash/redis";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
+// Create a new ratelimiter, that allows 5 requests per 10 minutes
+const ratelimit = new Ratelimit({
+    redis: Redis.fromEnv(),
+    limiter: Ratelimit.slidingWindow(5, "10 m"),
+    analytics: true,
+});
+
 export async function POST(req: Request) {
     try {
+        // Rate Limiting
+        if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+            const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1";
+            const { success, limit, reset, remaining } = await ratelimit.limit(ip);
+
+            if (!success) {
+                return new Response(JSON.stringify({
+                    error: 'Rate Limit Exceeded',
+                    message: '⏰ You have reached the message limit. Please try again later.'
+                }), {
+                    status: 429,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-RateLimit-Limit': limit.toString(),
+                        'X-RateLimit-Remaining': remaining.toString(),
+                        'X-RateLimit-Reset': reset.toString(),
+                    }
+                });
+            }
+        }
+
         const { messages } = await req.json();
         const apiKey = process.env.GOOGLE_API_KEY;
         console.log("Chat API called");
