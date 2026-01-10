@@ -19,13 +19,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ronel Tubio | Full Stack Developer Portfolio",
+  title: "Ronel Tubio | IT Professional Portfolio",
 
   description:
-    "Official portfolio of Ronel Tubio — a full stack developer passionate about building modern, efficient, and innovative web applications.",
+    "Official portfolio of Ronel Tubio — an IT Professional and Full Stack Developer passionate about building modern, efficient, and innovative web applications.",
   keywords: [
     "Ronel Formarejo Tubio",
     "Ronel Tubio Portfolio",
+    "IT Professional",
     "Full Stack Developer",
     "Web Developer",
     "Software Engineer",
@@ -66,9 +67,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Ronel Tubio | Full Stack Developer Portfolio",
+    title: "Ronel Tubio | IT Professional Portfolio",
     description:
-      "Discover the works and achievements of Ronel Tubio, a full stack developer creating innovative digital solutions.",
+      "Discover the works and achievements of Ronel Tubio, an IT Professional and Full Stack Developer creating innovative digital solutions.",
     url: "https://ronel-tubio-portfolio.vercel.app/",
     siteName: "Ronel Tubio Portfolio",
     images: [
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ronel Tubio - Full Stack Developer Portfolio",
+        alt: "Ronel Tubio - IT Professional Portfolio",
       },
     ],
     locale: "en_PH",

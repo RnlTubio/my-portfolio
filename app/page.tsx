@@ -515,54 +515,54 @@ export default function Portfolio() {
             className="space-y-8"
           >
             <TabsList
-              className="hidden md:grid w-full grid-cols-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
+              className="hidden md:grid w-full grid-cols-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm h-auto p-1"
               aria-label="Portfolio sections"
             >
               <TabsTrigger
                 value="about"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 About
               </TabsTrigger>
               <TabsTrigger
                 value="experience"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Experience
               </TabsTrigger>
               <TabsTrigger
                 value="skills"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Skills
               </TabsTrigger>
               <TabsTrigger
                 value="projects"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Projects
               </TabsTrigger>
               <TabsTrigger
                 value="awards"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Awards
               </TabsTrigger>
               <TabsTrigger
                 value="certificates"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Certificates
               </TabsTrigger>
               <TabsTrigger
                 value="gallery"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Gallery
               </TabsTrigger>
               <TabsTrigger
                 value="contact"
-                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 sm:px-2 py-1 sm:py-2"
+                className="w-full text-[10px] sm:text-xs md:text-sm font-medium px-1 py-1"
               >
                 Contact
               </TabsTrigger>
@@ -976,13 +976,8 @@ export default function Portfolio() {
                         key={index}
                         className="group relative bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border dark:border-slate-700 flex flex-col hover:shadow-md transition-shadow"
                       >
-                        <div className="relative w-full h-64 bg-slate-200 dark:bg-slate-900">
-                          <iframe
-                            src={`${cert.link}#view=FitH`}
-                            className="w-full h-full border-0"
-                            title={`${cert.title} Preview`}
-                            loading="lazy"
-                          />
+                        <div className="relative w-full h-64 bg-slate-200 dark:bg-slate-900 flex items-center justify-center group-hover:bg-slate-300 dark:group-hover:bg-slate-800 transition-colors">
+                          <FileText className="h-16 w-16 text-slate-400 dark:text-slate-600" />
                         </div>
                         <div className="p-4 flex flex-col flex-grow">
                           <h3 className="font-semibold text-slate-800 dark:text-slate-100 mb-1">
@@ -1030,13 +1025,8 @@ export default function Portfolio() {
                         {certificates.map((cert, index) => (
                           <CarouselItem key={index}>
                             <div className="group relative bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border dark:border-slate-700 flex flex-col hover:shadow-md transition-shadow h-full">
-                              <div className="relative w-full h-56 bg-slate-200 dark:bg-slate-900">
-                                <iframe
-                                  src={`${cert.link}#view=FitH`}
-                                  className="w-full h-full border-0"
-                                  title={`${cert.title} Preview`}
-                                  loading="lazy"
-                                />
+                              <div className="relative w-full h-56 bg-slate-200 dark:bg-slate-900 flex items-center justify-center">
+                                <FileText className="h-12 w-12 text-slate-400 dark:text-slate-600" />
                               </div>
                               <div className="p-4 flex flex-col flex-grow">
                                 <h3 className="font-semibold text-slate-800 dark:text-slate-100 mb-1">
@@ -1099,6 +1089,8 @@ export default function Portfolio() {
                           src={item.image}
                           alt={item.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          quality={75}
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -1133,6 +1125,8 @@ export default function Portfolio() {
                                 src={item.image}
                                 alt={item.title}
                                 fill
+                                sizes="(max-width: 768px) 100vw, 100vw"
+                                quality={75}
                                 className="object-cover"
                               />
                               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
